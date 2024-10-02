@@ -1,0 +1,30 @@
+#include <iostream>
+using namespace std;
+int main() {
+    int n;
+    cout << "Enter a decimal number: ";
+    cin >> n;
+    int num = n;
+    string binary = "";
+    while (num > 0) {
+        binary = to_string(num % 2) + binary;
+        num /= 2;
+    }
+    num = n;
+    string octal = "";
+    while (num > 0) {
+        octal = to_string(num % 8) + octal;
+        num /= 8;
+    }
+    num = n;
+    string hex = "";
+    string hexDigits = "0123456789ABCDEF";
+    while (num > 0) {
+        hex = hexDigits[num % 16] + hex;
+        num /= 16;
+    }
+    cout << "Binary: " << binary << endl;
+    cout << "Octal: " << octal << endl;
+    cout << "Hexadecimal: " << hex << endl;
+    return 0;
+}
