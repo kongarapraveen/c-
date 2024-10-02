@@ -1,0 +1,39 @@
+#include <iostream>
+#include <cmath>
+using namespace std;
+int hexToDec(char hexChar) {
+    if (hexChar >= '0' && hexChar <= '9')
+        return hexChar - '0';
+    else if (hexChar >= 'A' && hexChar <= 'F')
+        return hexChar - 'A' + 10;
+    else if (hexChar >= 'a' && hexChar <= 'f')
+        return hexChar - 'a' + 10;
+    return -1;
+}
+
+int main() {
+    string hex;
+    cout << "Enter a hexadecimal number: ";
+    cin >> hex;
+    int decimal = 0;
+    int len = hex.length();
+    for (int i = 0; i < len; i++) {
+        decimal += hexToDec(hex[i]) * pow(16, len - i - 1);
+    }
+    int num = decimal;
+    string binary = "";
+    while (num > 0) {
+        binary = to_string(num % 2) + binary;
+        num /= 2;
+    }
+    num = decimal;
+    string octal = "";
+    while (num > 0) {
+        octal = to_string(num % 8) + octal;
+        num /= 8;
+    }
+    cout << "Decimal: " << decimal << endl;
+    cout << "Binary: " << binary << endl;
+    cout << "Octal: " << octal << endl;
+    return 0;
+}
