@@ -1,0 +1,17 @@
+#include <iostream>
+using namespace std;
+class person{
+public:
+    string name;
+    int age;
+    void display(){
+        cout<<"name is:"<<name<<"\n"<<"age is:"<<age;
+    }
+};
+int main() {
+    person p;
+    p.name="siddu";
+    p.age=20;
+    person* ptr=&p;
+    ptr->display();
+}
