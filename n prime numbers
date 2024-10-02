@@ -1,0 +1,35 @@
+#include <iostream>
+#include <cmath>
+using namespace std;
+bool isprime(int num){
+    for(int i=2;i<=sqrt(num);i++){
+        if(num%i==0){
+            return false;
+        }
+    }
+    return true;
+}
+int main() {
+    int n=3;
+    int count=0;
+    int num=2;
+    int m=-1;
+    while(count<n){
+        if(isprime(num)){
+            count++;
+            if(count==n){
+                m=num;
+            }
+        }
+        num++;
+    }
+    cout<<m;
+    num=m+1;
+    while(n>0){
+        if(isprime(num)){
+            cout<<num;
+            n--;
+        }
+        num++;
+    }
+}
