@@ -1,0 +1,19 @@
+#include<iostream>
+#include<algorithm>
+using namespace std;
+int main(){
+    string s="sidduchowdary";
+    int n=s.length();
+    int vcount=0,cc=0;
+    for(int i=0;i<n;i++){
+        char c=s[i];
+        if(c=='a'||c=='e'||c=='i'||c=='o'||c=='u'){
+            cout<<c<<" ";
+            vcount++;
+        }
+        else{
+            cc++;
+        }
+    }
+    cout<<"\n"<<vcount<<" "<<cc;
+}
